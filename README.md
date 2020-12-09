@@ -1,4 +1,4 @@
-# odyssey
+# Flutter-Auth
 
 A new Flutter application.
 
