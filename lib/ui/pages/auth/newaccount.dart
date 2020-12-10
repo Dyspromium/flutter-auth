@@ -8,8 +8,8 @@ import 'package:odyssey/configs/api_config.dart';
 import 'package:odyssey/ui/pages/home.dart';
 import 'package:odyssey/ui/pages/auth/signin.dart';
 
-import 'package:odyssey/ui/partials/brandIcon.dart';
-import 'package:odyssey/ui/partials/inputField.dart';
+import 'package:odyssey/ui/common/component/brandIcon.dart';
+import 'package:odyssey/ui/common/component/inputs.dart';
 
 class NewAccount extends StatefulWidget {
   @override
@@ -121,10 +121,10 @@ class _NewAccountState extends State<NewAccount> {
                       style: TextStyle(color: Color.fromRGBO(24, 29, 61, 1), fontSize: 15),
                     ),
                     SizedBox(height: 50,),
-                    InputField(controller: usernameController,hintText: "Username",icon: Icon(Icons.person),obscureText: false),
-                    InputField(controller: emailController,hintText: "Email",icon: Icon(Icons.email),obscureText: false),
-                    InputField(controller: passwordController,hintText: "Password",icon: Icon(Icons.https),obscureText: true),
-                    InputField(controller: passwordRepeatController,hintText: "Confirm Password",icon: Icon(Icons.email),obscureText: true),
+                    Input(controller: usernameController,hintText: "Username",icon: Icon(Icons.person),obscureText: false),
+                    Input(controller: emailController,hintText: "Email",icon: Icon(Icons.email),obscureText: false),
+                    Input(controller: passwordController,hintText: "Password",icon: Icon(Icons.https),obscureText: true),
+                    Input(controller: passwordRepeatController,hintText: "Confirm Password",icon: Icon(Icons.email),obscureText: true),
                     SizedBox(height: 50,),
                     failedBox,
                     MaterialButton(

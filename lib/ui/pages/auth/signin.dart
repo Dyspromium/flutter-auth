@@ -8,9 +8,9 @@ import 'package:odyssey/configs/api_config.dart';
 import 'package:odyssey/ui/pages/home.dart';
 import 'package:odyssey/ui/pages/auth/newaccount.dart';
 
-import 'package:odyssey/ui/partials/inputField.dart';
-import 'package:odyssey/ui/partials/textButton.dart';
-import 'package:odyssey/ui/partials/brandIcon.dart';
+import 'package:odyssey/ui/common/component/inputs.dart';
+import 'package:odyssey/ui/common/component/textButton.dart';
+import 'package:odyssey/ui/common/component/brandIcon.dart';
 
 
 class SignIn extends StatefulWidget {
@@ -23,20 +23,6 @@ class _SignInState extends State<SignIn> {
   SharedPreferences sharedPreferences;
   Widget failedBox = Container();
   bool stayLogged = false;
-
-
-  @override
-  void initState(){
-    super.initState();
-    checkLoginStatus();
-  }
-
-  checkLoginStatus() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    if(sharedPreferences.getString("token")!=null && sharedPreferences.getString("stayLogged")=="true"){
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => Home()), (route) => false);
-    }
-  }
 
   signIn(String username, String password) async {
 
@@ -76,6 +62,7 @@ class _SignInState extends State<SignIn> {
       });
     }
   }
+
 
   //InputController
   TextEditingController usernameController = new TextEditingController();
@@ -119,7 +106,7 @@ class _SignInState extends State<SignIn> {
                         style: TextStyle(color: Color.fromRGBO(24, 29, 61, 1), fontSize: 15),
                       ),
                     ),
-                    InputField(
+                    Input(
                       controller: usernameController,
                       hintText: "Username",
                       icon: Icon(Icons.person),
@@ -127,7 +114,7 @@ class _SignInState extends State<SignIn> {
                       textInputAction: TextInputAction.next,
                       onEditingComplete: () => node.nextFocus(),
                     ),
-                    InputField(
+                    Input(
                         controller: passwordController,
                         hintText: "Password",
                         icon: Icon(Icons.https),
@@ -162,7 +149,6 @@ class _SignInState extends State<SignIn> {
                       signIn(usernameController.text, passwordController.text);
                     },text: "SIGN IN"),
                     SizedBox(height: 15,),
-
                   ],
                 ),
               ),

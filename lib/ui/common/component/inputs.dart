@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class InputField extends StatelessWidget {
+class Input extends StatelessWidget {
 
-  const InputField({
+  const Input({
     this.controller,
     this.hintText,
     this.icon,

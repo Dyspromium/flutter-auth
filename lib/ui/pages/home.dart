@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:odyssey/ui/pages/auth/signin.dart';
 
-import 'package:odyssey/ui/partials/textButton.dart';
+import 'package:odyssey/ui/common/component/textButton.dart';
 
 class Home extends StatelessWidget {
 
@@ -24,11 +24,11 @@ class Home extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Vous etes connecté"),
+                  Text("Connected"),
                   TextButton(onPress: (){
                     disconnect();
                     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => SignIn()), (route) => false);
-                  },text: "DECONNEXION",)
+                  },text: "DISCONNECT",)
                 ],
               ),
             ),
